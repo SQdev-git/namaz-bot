@@ -31,9 +31,9 @@ def main(c):
     datas = c.data.split("()")
     if len(datas)>1:
         if datas[0]=='reg':
-            bot.edit_message_text(chat_id=c.message.chat.id, message_id=c.message.message_id,text= 'Шаҳри дар ин вилоятбударо интихоб кунед', reply_markup=generate_key('city', func.get_api_city(datas[1])))
+            bot.edit_message_text(chat_id=c.message.chat.id, message_id=c.message.message_id,text= 'Выберите город', reply_markup=generate_key('city', func.get_api_city(datas[1])))
         elif datas[0]=='city':
-            bot.edit_message_text(chat_id=c.message.chat.id, message_id=c.message.message_id, text= 'Интизор шавед...')
+            bot.edit_message_text(chat_id=c.message.chat.id, message_id=c.message.message_id, text= 'Ждите получаю данные...')
             bot.edit_message_text(chat_id=c.message.chat.id, message_id=c.message.message_id, text=func.get_api_time(datas[1]))
     elif c.data=='exit':
         bot.delete_message(c.message.chat.id, c.message.message_id)
